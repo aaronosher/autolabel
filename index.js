@@ -3,7 +3,7 @@ const issueHelper = require('./helpers/process-issue')
 
 // Run your GitHub Action!
 Toolkit.run(async tools => {
-  if (tools.context.event !== 'issues' || tools.context.event !== 'pull_request') {
+  if (tools.context.event !== 'issues' && tools.context.event !== 'pull_request') {
     tools.exit.failure('event type must be "issues" or "pull_request". actions will not be performed until this is updated');
     return;
   }
