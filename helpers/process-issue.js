@@ -35,7 +35,7 @@ module.exports = {
         var issueType = issue.data.pull_request ? 'pull request' : 'issue'
 
         // [matched]
-        var labelRegex = new RegExp('\[([A-z]\ ?[A-z]?)+\]');
+        var labelRegex = /\[([A-z]\ ?[A-z]?)+\]/;
         var matches = labelRegex.exec(issue.data.title);
         if (!matches || matches.length === 0) {
             if (args.requireLabel) {
